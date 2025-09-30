@@ -2,7 +2,7 @@
 Calculator Module - Basic arithmetic operations
 Students will extend this with more functions
 """
-
+import math
 def add(a, b):
     """Add two numbers together"""
     return a + b
@@ -33,9 +33,34 @@ def divide(a, b):
     print(f"Result: {result}")
     return result
 
-# TODO: Students will add multiply, divide, power, sqrt functions
+def power(a, b):
+    """Raise a to the power of b"""
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("power() requires numeric inputs")
+    
+    print(f"Calculating {a} ^ {b} ...")
+    result = a ** b
+    print(f"Result: {result}")
+    return result
+
+def sqrt(a):
+    """Return the square root of a number"""
+    if not isinstance(a, (int, float)):
+        raise TypeError("sqrt() requires a numeric input")
+    if a < 0:
+        raise ValueError("sqrt() error: cannot take square root of a negative number")
+    
+    print(f"Calculating √{a} ...")
+    result = math.sqrt(a)
+    print(f"Result: {result}")
+    return result
+
 
 if __name__ == "__main__":
     print("🧮 Calculator Module")
     print(f"2 + 3 = {add(2, 3)}")
     print(f"5 - 2 = {subtract(5, 2)}")
+    print(f"4 x 6 = {multiply(4, 6)}")
+    print(f"10 ÷ 2 = {divide(10, 2)}")
+    print(f"2 ^ 3 = {power(2, 3)}")
+    print(f"√16 = {sqrt(16)}")
